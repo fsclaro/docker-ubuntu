@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+  ubuntu:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ubuntu
+    container_name: ubuntu
+    stdin_open: true
+    tty: true
+    restart: always
+    volumes:
+      - .:/root/projetos
+    networks:
+      - ubuntu-networks
+
+networks:
+  ubuntu-networks:
+    driver: bridge
